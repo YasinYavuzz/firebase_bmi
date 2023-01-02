@@ -39,7 +39,7 @@ class SplashPage extends GetView<SplashController> {
             ),
             Container(
               width: 100.w,
-              height: 37.h,
+              height: 36.h,
               //color: Colors.red,
               child: Column(
                 children: [
