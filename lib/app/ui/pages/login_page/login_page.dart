@@ -69,7 +69,18 @@ class LoginPage extends GetView<LoginController> {
                         fontWeight: FontWeight.w600),
                   ),
                   SizedBox(
-                    height: 2.h,
+                    height: 1.h,
+                  ),
+                  Obx(() => Center(
+                          child: Text(
+                        controller.auth.returnEmailMessage.value,
+                        style: const TextStyle(
+                            color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w700),
+                      ))),
+                  SizedBox(
+                    height: 1.h,
                   ),
                   Container(
                     alignment: Alignment.center,
@@ -87,6 +98,7 @@ class LoginPage extends GetView<LoginController> {
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 2.h),
                       child: TextFormField(
+                        controller: controller.email,
                         decoration: InputDecoration(
                             prefixIcon: const Icon(Icons.email),
                             hintText: 'E-mail',
@@ -99,7 +111,18 @@ class LoginPage extends GetView<LoginController> {
                     ),
                   ),
                   SizedBox(
-                    height: 2.h,
+                    height: 1.h,
+                  ),
+                  Obx(() => Center(
+                          child: Text(
+                        controller.auth.returnPasswordMessage.value,
+                        style: const TextStyle(
+                            color: Colors.red,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w700),
+                      ))),
+                  SizedBox(
+                    height: 1.h,
                   ),
                   Container(
                     alignment: Alignment.center,
@@ -115,8 +138,9 @@ class LoginPage extends GetView<LoginController> {
                       borderRadius: BorderRadius.circular(40),
                     ),
                     child: Obx(() => Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 2.h),
-                      child: TextFormField(
+                          padding: EdgeInsets.symmetric(horizontal: 2.h),
+                          child: TextFormField(
+                            controller: controller.password,
                             obscureText: controller.passwordVisible.value,
                             decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.password),
@@ -128,7 +152,8 @@ class LoginPage extends GetView<LoginController> {
                                     : IconButton(
                                         onPressed: () =>
                                             controller.changePasswordVisible(),
-                                        icon: const Icon(FontAwesomeIcons.eyeSlash)),
+                                        icon: const Icon(
+                                            FontAwesomeIcons.eyeSlash)),
                                 hintText: 'Password',
                                 hintStyle: TextStyle(
                                     color: Colors.grey,
@@ -136,7 +161,7 @@ class LoginPage extends GetView<LoginController> {
                                     fontWeight: FontWeight.bold),
                                 border: InputBorder.none),
                           ),
-                    )),
+                        )),
                   ),
                   SizedBox(
                     height: 2.h,
@@ -144,7 +169,7 @@ class LoginPage extends GetView<LoginController> {
                   Align(
                     alignment: Alignment.center,
                     child: InkWell(
-                      //onTap: () => Get.toNamed(AppRoutes.LOGINPAGE),
+                      onTap: () => controller.signIn(),
                       child: Container(
                         width: 40.w,
                         height: 7.h,

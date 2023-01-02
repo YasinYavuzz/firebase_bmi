@@ -79,7 +79,7 @@ class SignupController extends GetxController {
     if (returnPasswordMessage.value == "Şifre 6 karakterden kısa olamaz" || returnEmailMessage.value == "Email boş geçilemez" || returnEmailMessage.value == "Email doğru formatta değil" || returnKullaniciAdiMessage.value == "Kullanıcı adı boş geçilemez" || returnCorrectPasswordMessage.value == "Şifreler eşleşmiyor") {
       // return Get.defaultDialog(title: 'Kullanıcı O')
     } else {
-      auth.createUser(email.text, password.text);
+      auth.createUser(email.text, password.text, kullanici_adi.text);
     } 
   }
 }
