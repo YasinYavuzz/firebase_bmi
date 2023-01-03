@@ -9,11 +9,11 @@ class FirestoreService extends GetxService{
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  addUsers(email, Map<String, dynamic> data){
-    FirebaseFirestore.instance.collection('Users').doc(email).set(data);
+  addUsers(Map<String, dynamic> data){
+    FirebaseFirestore.instance.collection('Users').doc(auth.currentUser!.email).set(data);
   }
 
   addBMI(Map<String,dynamic> data){
-    FirebaseFirestore.instance.collection('Users').doc(auth.currentUser!.email).collection('BMI').add(data);
+    FirebaseFirestore.instance.collection('Users').doc(auth.currentUser!.email).collection('Bilgiler').add(data);
   }
 }

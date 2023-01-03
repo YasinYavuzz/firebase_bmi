@@ -19,7 +19,7 @@ class AuthService extends GetxService{
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
-      ).then((value) => firestore.addUsers(email, {'kullanici_adi' : kullanici_adi, 'email' : email})).then((value) => Get.toNamed(AppRoutes.LOGINPAGE));
+      ).then((value) => firestore.addUsers({'kullanici_adi' : kullanici_adi, 'email' : email})).then((value) => Get.toNamed(AppRoutes.LOGINPAGE));
       //
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
