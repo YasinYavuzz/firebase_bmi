@@ -71,6 +71,7 @@ flutter:
     - assets/splash/
     - assets/login/
     - assets/home/
+    - assets/bmi_calculator/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

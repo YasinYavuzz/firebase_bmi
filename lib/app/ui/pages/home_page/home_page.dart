@@ -1,4 +1,5 @@
 
+import 'package:firebase_bmi/app/routes/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -31,24 +32,27 @@ class HomePage extends GetView<HomeController> {
             // mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                //alignment: Alignment.center,
-                width: 100.w,
-                height: 30.h,
-                //color: Colors.red,
-                child: Card(
-                  color: const Color.fromARGB(255, 59, 49, 49),
-                  elevation: 10,
-                  shadowColor: Colors.grey,
-                  child: Column(
-                    children: [
-                      Flexible(
-                        flex: 5, child: Container(decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/home/im_bmi.png'))),),
-                      ),
-                      Flexible(
-                        flex: 1, child: Container(color: Colors.red,child: const Center(child: Text('Vücut Kitle Indeksi Hesaplama',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),)),),
-                      ),
-                    ],
+              InkWell(
+                onTap: () => Get.toNamed(AppRoutes.BMICALCULATORPAGE),
+                child: Container(
+                  //alignment: Alignment.center,
+                  width: 100.w,
+                  height: 30.h,
+                  //color: Colors.red,
+                  child: Card(
+                    color: const Color.fromARGB(255, 59, 49, 49),
+                    elevation: 10,
+                    shadowColor: Colors.grey,
+                    child: Column(
+                      children: [
+                        Flexible(
+                          flex: 5, child: Container(decoration: const BoxDecoration(image: DecorationImage(image: AssetImage('assets/home/im_bmi.png'))),),
+                        ),
+                        Flexible(
+                          flex: 1, child: Container(color: Colors.red,child: const Center(child: Text('Vücut Kitle Indeksi Hesaplama',style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.bold),)),),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
